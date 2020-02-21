@@ -7,7 +7,11 @@ David Hernandez
 
 Purpose
 
-//
+This program is generates a schedule created by the initial user where other invited
+individuals can view, contribute to, and interact with. Additionally, it will allow 
+the users to set reminders/alarms and report the weather at a given location. The 
+ultimate goal is to combine each of these smaller applications/tasks into one easy-to 
+use, consolidated program.
 
 Requirements
 
@@ -32,6 +36,19 @@ Requirements
 7. Name: deleteReminder
    Type: Functional
    Summary: Reminders can be deleted by the user(s) if necessary.
-8. Name: 
+8. Name: weatherForecast
+   Type: Functional
+   Summary: The weather forecast accessed/viewed by the user.
+9. Name: operatingSystem
+   Type: Constraint
+   Summary: The program should at least operate on Windows 10 but potentially on Mac OS as well as Linux.
+10.Name: programmingLanguage
+   Type: Constraint
+   Summary: The program must be written in C#.
+11.Name: informationPrivacy
+   Type: Risk
+   Summary: The calendar could contain sensitive, personal information that should only be accessible
+   to the members of the calendar.
+12.Name:
    Type:
    Summary:
