@@ -1,0 +1,254 @@
+﻿
+
+VISION DOCUMENT
+ CSCI-4600
+
+
+Daphne Williams & David Hernandez
+
+
+
+
+1 Introduction
+
+
+1.1 Purpose
+
+The main purpose of this vision document is to outline the vital requirements, functions, and features of
+this project. 
+The focus is to create a blueprint for the program and detailing the necessary libraries, the
+target users, as well as the stakeholder’s abilities.
+
+
+1.2 Scope
+
+This Vision Document applies to the Calendar Project, name TBD, which will be developed by Daphne 
+Williams and David Hernandez. 
+David and Daphne will develop this project in the C# programming 
+language. 
+This project will help co-workers, friends, and even families communicate their schedules plan
+their futures.
+
+
+
+
+2 Positioning
+
+
+2.1 Business Opportunity
+
+In a fast-paced and bustling world where information needs to be readily accessible, a product that
+consolidates crucial, daily-needed information that all can be found in one place instantly is practically 
+essential. 
+The application launched using an accessible platform such as smartphones is cost-efficient and
+has the potential to reach a wide-ranged audience.
+
+
+2.2 Problem Statement
+
+The Problem of			No shared calendar application to communicate schedules.
+Affects				
+
+
+Teachers/students, families, employers/employees.
+
+
+The Impact of Which is
+
+		Confusion or conflict between parties when schedules are unsure or
+unknown.
+
+
+A Successful Solution Would
+be	
+
+A calendar/planner program where each party can contribute entries
+and can communicate schedules with one another in real time.
+
+
+For				
+
+Teachers/students, families, employers/employees, or anyone group
+of people needing to keep up with each other’s agendas.
+
+
+Who
+
+ 				Have overlapping and/or intertwining schedules.
+
+
+Calendar Project (Name TBD) 	Is a software application.
+
+That				
+
+Generates a schedule created by the initial user where other invited
+individuals can view, contribute to, and interact with. Additionally,
+it will allow the users to set reminders/alarms and report the weather
+
+ at a given location.
+
+Unlike
+ 				
+Many other similar applications which do each of the tasks 
+separately
+ 
+Our Product			Combines each of these smaller applications/tasks into one easy-touse, consolidated program.
+
+
+
+
+3 Stakeholder Description
+
+
+3.2 Stakeholder Summary
+
+Name
+
+ 			Skills (Languages)
+
+
+Daphne Williams 	
+
+My proficient languages include Python, Ruby, C++, C#,
+and Java.
+
+
+David Hernandez		
+
+C#, C++, C, SQL, Java, JavaScript, Python
+
+
+
+3.3 User Summary
+
+Name			
+
+Description				
+
+Stakeholder
+
+
+Student/Teachers
+
+ 	Primary End User of the System
+
+		Self
+
+
+Families
+
+	 	Primary End User of the System
+
+ 		Self
+
+
+Employer/Employee	
+
+Primary End User of the System
+
+ 		Self
+
+
+
+
+4 Product Overview
+
+
+4.1 Product Perspective
+
+
+
+4.2 Summary of Capabilities
+
+Benefit				
+
+			Features
+
+
+More effective joint scheduling
+
+				Calendar generator, color-coded events
+
+
+Combine multiple app features to enhance 
+efficiency	
+
+Calendar, plan/event reminder alarm, daily or 
+weekly weather forecast
+
+
+
+4.3 Assumptions and Dependencies
+
+1. In using the application, it is assumed that user can type
+2. 
+It is assumed that user can read and comprehend English
+3.
+ 
+It is assumed that all users will be on a PC or laptop computer
+4. 
+It is assumed that the user has need of a calendar
+5. 
+It is assumed the user has events to add to the calendar
+
+
+
+
+5 Product Features
+
+
+5.1 Open Application
+
+5.2 Close Application
+
+5.3 Clear Calendar (Day, Month, or Year)
+
+5.4 Add Planner Events
+
+5.5 Edit Planner Events
+
+5.6 Delete Planner Events
+
+5.7 Add Members to Calendar
+
+5.8 Set Alarm Reminder
+
+5.9 Edit Alarm Reminder
+
+5.10 Delete Alarm Reminder
+
+5.11 View Weather Forecast (Daily or Weekly)
+
+
+
+
+6 Constraints
+
+The main constraint is that program will be developed using the C# programming language and tools and
+should be able to execute on all platforms including Windows, Mac, and Linux operating systems. 
+The 
+biggest risk is security; an individual’s personal schedule is only to be shared with whom they choose to
+share it with and should be secure enough to not be seen by others.
+
+
+
+
+9 Other Product Requirements
+
+
+9.1 System Requirements
+The system must run on:
+
+
+• Windows
+
+• Mac OS
+
+• Linux
+
+9.1.1 Performance Requirements
+None specified
+
+9.1.2 Environmental Requirements
+None specified
+
