@@ -97,5 +97,8 @@
   <ItemGroup>
     <None Include="Resources\Vision Document.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Requirements.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

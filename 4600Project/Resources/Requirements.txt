@@ -1,0 +1,37 @@
+Caldendar Requirements
+
+Team Members
+
+Daphne Williams
+David Hernandez
+
+Purpose
+
+//
+
+Requirements
+
+1. Name: addEvent
+   Type: Functional
+   Summary: Events can be added to the calendar program by the user.  
+2. Name: editEvent
+   Type: Functional
+   Summary: The user(s) should be able to edit the event(s) added to the calendar. 
+3. Name: deleteEvent
+   Type: Functional
+   Summary: The user(s) should be able to delete any individual event if need be.
+4. Name: clearCalendar
+   Type: Functional
+   Summary: The entire calendar should be able to be cleared at will.
+5. Name: addMembers
+   Type: Functional
+   Summary: Members can be invited/added by the calendar creator.
+6. Name: setReminder
+   Type: Functional
+   Summary: The user(s) can choose to set a reminder for a particular event.
+7. Name: deleteReminder
+   Type: Functional
+   Summary: Reminders can be deleted by the user(s) if necessary.
+8. Name: 
+   Type:
+   Summary:

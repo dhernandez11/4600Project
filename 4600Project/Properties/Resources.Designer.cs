@@ -61,6 +61,38 @@ namespace _4600Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Caldendar Requirements
+        ///
+        ///Team Members
+        ///
+        ///Daphne Williams
+        ///David Hernandez
+        ///
+        ///Purpose
+        ///
+        /////
+        ///
+        ///Requirements
+        ///
+        ///1. Name: addEvent
+        ///   Type: Functional
+        ///   Summary: Events can be added to the calendar program by the user.  
+        ///2. Name: editEvent
+        ///   Type: Functional
+        ///   Summary: The user(s) should be able to edit the event(s) added to the calendar. 
+        ///3. Name: deleteEvent
+        ///   Type: Functional
+        ///   Summary: The user(s) should be able to delete any individual event if need be.
+        ///4. Name: clearCalendar
+        ///   Type: Func [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Requirements {
+            get {
+                return ResourceManager.GetString("Requirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 
         ///
         ///VISION DOCUMENT
