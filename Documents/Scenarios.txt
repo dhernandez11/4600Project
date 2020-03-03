@@ -1,0 +1,10 @@
+﻿Scenario 1: Employer/Employees
+        An employer wishes to relay the weekly/monthly schedule in a timely and orderly manner in which each employee receives the information simultaneously. Because of this, they create a work schedule through a calendar and invite each employee so they each have access to this timetable. Every member invited is able to set reminders for their individual shift. Should an employee have an issue with the planned schedule, they can make note of it on the calendar so the employer can see it and so their peers can switch or cover shifts if need be.
+
+
+Scenario 2: Teachers/Students
+        For teachers, especially college professors, it would be beneficial to create a schedule for each of their individual classes. That being said, they do just that and add all of their students to their respective classes. The students would have access to assignment/homework due dates, test/quiz dates, and project deadlines instantly and have no excuse to not have their work completed. The students can set reminders for themselves to complete an assignment or to study for a test. They can also leave a note for the teacher to see if they have extenuating circumstances as to why they cannot complete something on time if necessary.
+
+
+Scenario 3: Families
+        The head or heads of a large family, with each member having a busy, personal schedule, want to have access to everyone else’s affairs and would greatly benefit from having this information. The parents of many children who are all of different ages and attend different school events, partake in different sports or participate in afterschool clubs need to communicate with one another to be able to get their kids where they need to be. They both would be able to add events to the calendar to notify the other of their family’s upcoming commitments. If they need to
