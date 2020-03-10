@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,30 @@ namespace _4600Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CreateCalendarWindow NewCalendar;
+        private LogInWindow LogInCalendar;
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void btnNewCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewCalendar == null)
+            {
+                NewCalendar = new CreateCalendarWindow();
+            }
+            NewCalendar.Show();
+        }
+
+        private void btnJoinCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            if (LogInCalendar == null)
+            {
+                LogInCalendar = new LogInWindow();
+            }
+            LogInCalendar.Show();
+        }
     }
+
 }
