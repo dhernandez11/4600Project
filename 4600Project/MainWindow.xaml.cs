@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,8 +24,10 @@ namespace _4600Project
     {
         private CreateCalendarWindow NewCalendar;
         private LogInWindow LogInCalendar;
+
         public MainWindow()
         {
+       
             InitializeComponent();
         }
 
@@ -44,6 +47,7 @@ namespace _4600Project
                 LogInCalendar = new LogInWindow();
             }
             LogInCalendar.Show();
+            this.Close();
         }
     }
 

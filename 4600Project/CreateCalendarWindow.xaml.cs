@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -23,7 +24,9 @@ namespace _4600Project
     public partial class CreateCalendarWindow : Window
     {
         private List<Members> membersList = new List<Members>();
-        
+        CreateNewCalendar calendar;
+
+
         public CreateCalendarWindow()
         {
             InitializeComponent();
@@ -35,13 +38,15 @@ namespace _4600Project
         }
         private void btnAddMember_Click(object sender, RoutedEventArgs e)
         {
-            CreateNewCalendar calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
+            calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
             Members member = new Members(txtbxAddMembersName.Text, txtbxAddMembersEmail.Text);
             calendar.addMemberToCalendar(member);
             this.addMemb(member);
             lstbxAddMember.Items.Add(member); 
             txtbxAddMembersName.Clear();
             txtbxAddMembersEmail.Clear();
+
+
         }
 
         private void btnRemoveMember_Click(object sender, RoutedEventArgs e)
@@ -57,7 +62,9 @@ namespace _4600Project
             //encrypt/save password and calendar name
             //figure out how to use multiple email senders; this as of right now, will send only from outlook/hotmail accounts to any email account
             //possibly create a generic outlook email account to send out invites rather than use user emails to combat this easily
-       
+
+            calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
+
             MailMessage mail = new MailMessage();
             SmtpClient smtp = new SmtpClient("smtp.outlook.com");
 
@@ -80,8 +87,9 @@ namespace _4600Project
                 smtp.Send(mail);
 
             }
-            
-            this.Hide();
+
+            Database.AddUser(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
+            this.Close();
 
 
         }

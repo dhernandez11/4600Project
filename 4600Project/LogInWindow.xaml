@@ -12,7 +12,7 @@
         <Label x:Name="lblLogInPassword" Content="Calendar Password:" HorizontalAlignment="Left" Margin="60,128,0,0" Foreground="CornflowerBlue" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="txtbxLogInName" HorizontalAlignment="Left" Height="23" Margin="201,88,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="pwrdbxPassword" HorizontalAlignment="Left" Margin="201,135,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnLogIn" Content="Log In" HorizontalAlignment="Left" Margin="143,207,0,0" Foreground="WhiteSmoke" Background="CornflowerBlue" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnLogIn_Click"/>
+        <Button x:Name="btnLogIn" Content="Log In" HorizontalAlignment="Left" Margin="143,197,0,0" Foreground="WhiteSmoke" Background="CornflowerBlue" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnLogIn_Click"/>
 
     </Grid>
 </Window>

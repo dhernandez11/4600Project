@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace _4600Project
     /// </summary>
     public partial class LogInWindow : Window
     {
+        private Calendar calendar;
         public LogInWindow()
         {
             InitializeComponent();
@@ -26,19 +28,23 @@ namespace _4600Project
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            CreateNewCalendar cal = new CreateNewCalendar();
-            if(txtbxLogInName.Text != cal.getTitle())
+           int userId = Database.GetUserById(txtbxLogInName.Text, pwrdbxPassword.Password);
+           if(userId > 0)
             {
-                MessageBox.Show("Calendar Name or Password Incorrect");
-            }
-            else if(pwrdbxPassword.Password != cal.getPassword())
-            {
-                MessageBox.Show("Calendar Name or Password Incorrect");
+                //open appropriate calendar window here
+                if(calendar == null)
+                {
+                    calendar = new Calendar();
+                }
+                this.Close();
+
+                calendar.Show();
             }
             else
             {
-                //open appropriate calendar window here
-                this.Hide();
+                MessageBox.Show("Incorrect Calendar Name or Password");
+                txtbxLogInName.Clear();
+                pwrdbxPassword.Clear();
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
+    [Serializable]
     public class CreateNewCalendar
     {
         private string title;
