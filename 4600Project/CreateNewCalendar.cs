@@ -8,7 +8,7 @@ namespace _4600Project
 {
     public class CreateNewCalendar
     {
-        private string title;
+        public string title;
         private List<Member> members = new List<Member>();
         private string password;
 

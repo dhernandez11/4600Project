@@ -32,7 +32,5 @@
         <Label x:Name="lblCreatorEmail" Content="Your Email Address:" HorizontalAlignment="Left" Margin="106,123,0,0" Foreground="CornflowerBlue" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="txtbxCreatorEmail" HorizontalAlignment="Left" Height="23" Margin="295,128,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
         <TextBox x:Name="txtbxCreatorName" HorizontalAlignment="Left" Height="23" Margin="295,88,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-        <Label Content="Your Email Password:" HorizontalAlignment="Left" Margin="97,164,0,0" Foreground="CornflowerBlue" VerticalAlignment="Top" FontSize="14"/>
-        <PasswordBox x:Name="pwdbxCreatorEmailPassword" HorizontalAlignment="Left" Margin="296,170,0,0" VerticalAlignment="Top" Width="118" Height="21"/>
     </Grid>
 </Window>
