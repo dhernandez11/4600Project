@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
-    public class Members
+    public class Member
     { 
-        private string name;
-        private string emailAddress;
+        protected string name;
+        protected string emailAddress;
 
-        public Members()
-        {
-
-        }
-        public Members(string name, string emailAddress)
+      
+        public Member(string name, string emailAddress)
         {
             this.name = name;
             this.emailAddress = emailAddress;

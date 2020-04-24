@@ -23,7 +23,7 @@ namespace _4600Project
     /// </summary>
     public partial class CreateCalendarWindow : Window
     {
-        private List<Members> membersList = new List<Members>();
+        private List<Member> membersList = new List<Member>();
         CreateNewCalendar calendar;
 
 
@@ -32,14 +32,14 @@ namespace _4600Project
             InitializeComponent();
         }
 
-        public void addMemb(Members member)
+        public void addMemb(Member member)
         {
             this.membersList.Add(member);
         }
         private void btnAddMember_Click(object sender, RoutedEventArgs e)
         {
             calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
-            Members member = new Members(txtbxAddMembersName.Text, txtbxAddMembersEmail.Text);
+            Member member = new Member(txtbxAddMembersName.Text, txtbxAddMembersEmail.Text);
             calendar.addMemberToCalendar(member);
             this.addMemb(member);
             lstbxAddMember.Items.Add(member); 
@@ -80,7 +80,7 @@ namespace _4600Project
             smtp.Credentials = new System.Net.NetworkCredential(txtbxCreatorEmail.Text, pwdbxCreatorEmailPassword.Password);
 
 
-            foreach (Members member in membersList)
+            foreach (Member member in membersList)
             {
                 MailAddress To = new MailAddress(member.getEmailAddress());
                 mail.To.Add(member.getEmailAddress());

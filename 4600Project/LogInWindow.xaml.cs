@@ -20,7 +20,7 @@ namespace _4600Project
     /// </summary>
     public partial class LogInWindow : Window
     {
-        private Calendar calendar;
+        private CalendarWindow calendar;
         public LogInWindow()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace _4600Project
                 //open appropriate calendar window here
                 if(calendar == null)
                 {
-                    calendar = new Calendar();
+                    calendar = new CalendarWindow();
                 }
                 this.Close();
 

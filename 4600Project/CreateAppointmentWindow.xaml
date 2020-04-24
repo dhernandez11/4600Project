@@ -4,19 +4,114 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_4600Project"
+        xmlns:my1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
         Title="CreateAppointmentWindow" Height="314" Width="368">
     <Grid Background="CornflowerBlue">
 
 
-        <Label x:Name="lblAppointmentTitle" Foreground="WhiteSmoke" Grid.Column="0" Grid.Row="0" Content="Title:" Margin="69,29,247,220" FontSize="14" />
-        <Label x:Name="lblAppointmentStartTime" Foreground="WhiteSmoke" Grid.Column="0" Content="Start Time:" Margin="35,77,246,173" FontSize="14" />
-        <Label x:Name="lblAppointmentEndTime" Foreground="WhiteSmoke" Content="End Time:" Margin="43,137,-10,-122" FontSize="14" RenderTransformOrigin="0.388,0.616" />
+        <Label x:Name="lblAppointmentTitle" Foreground="WhiteSmoke" Content="Title:" Margin="70,25,240,229" FontSize="14" />
+        <Label x:Name="lblAppointmentDate" Foreground="WhiteSmoke" Content="Date:" Margin="70,66,249,187" FontSize="14" />
+        <Label x:Name="lblAppointmentTime" Foreground="WhiteSmoke" Content="Time:" Margin="67,104,248,151" FontSize="14" RenderTransformOrigin="0.388,0.616" />
+        <Label x:Name="lblAppointmentLocation" Foreground="WhiteSmoke" Content="Location:" Margin="49,145,245,110" FontSize="14" RenderTransformOrigin="0.388,0.616" />
 
-        <TextBox x:Name="txtbxAppointmentTitle" Background="WhiteSmoke" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="122,33,0,0" FontSize="14"/>
-        <TextBox x:Name="txtbxAppointmentStartTime" Background="WhiteSmoke" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="122,84,0,0" FontSize="14" />
-        <TextBox x:Name="txtbxAppointmentEndTime" Background="WhiteSmoke" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="122,141,0,0" FontSize="14" />
 
-        <Button x:Name="btnAddAppointment" Background="WhiteSmoke" Foreground="CornflowerBlue" Content="Add Appointment" Click="Button_Click" Margin="115,192,106,63" FontSize="14"/>
+        <TextBox x:Name="txtbxAppointmentTitle" Background="WhiteSmoke" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="122,30,0,0" FontSize="14"/>
+        <TextBox x:Name="txtbxAppointmentDate" Background="WhiteSmoke" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="122,70,0,0" FontSize="14" Text="{Binding datePicker}" />
+        <my1:DatePicker SelectedDateChanged="datePicker_SelectedDateChanged" BorderThickness="0" Margin="280,70,52,189" Name="datePicker" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" />
+
+        <ComboBox Name="cmbxHour" Background="WhiteSmoke" Foreground="DimGray" HorizontalAlignment="Left" Margin="122,110,0,0" VerticalAlignment="Top" Width="56">
+            <ComboBoxItem Content="Hour" Foreground="DimGray" Background="WhiteSmoke" IsSelected="True"/>
+            <ComboBoxItem Name="ChoiceHour1" Content="1" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour2" Content="2" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour3" Content="3" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour4" Content="4" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour5" Content="5" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour6" Content="6" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour7" Content="7" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour8" Content="8" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour9" Content="9" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour10" Content="10" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour11" Content="11" Foreground="Black" Background="WhiteSmoke"/>
+            <ComboBoxItem Name="ChoiceHour12" Content="12" Foreground="Black" Background="WhiteSmoke"/>
+
+
+        </ComboBox>
+        <ComboBox Name="cmbxMinute" Foreground="DimGray" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="185,110,0,0" VerticalAlignment="Top" Width="66">
+            <ComboBoxItem Content="Minute" Foreground="DimGray" Background="WhiteSmoke" IsSelected="True"/>
+            <ComboBoxItem Name="ChoiceMinute0" Content="00" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute1" Content="01" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute2" Content="02" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute3" Content="03" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute4" Content="04" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute5" Content="05" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute6" Content="06" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute7" Content="07" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute8" Content="08" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute9" Content="09" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute10" Content="10" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute11" Content="11" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute12" Content="12" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute13" Content="13" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute14" Content="14" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute15" Content="15" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute16" Content="16" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute17" Content="17" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute18" Content="18" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute19" Content="19" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute20" Content="20" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute21" Content="21" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute22" Content="22" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute23" Content="23" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute24" Content="24" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute25" Content="25" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute26" Content="26" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute27" Content="27" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute28" Content="28" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute29" Content="29" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute30" Content="30" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute31" Content="31" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute32" Content="32" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute33" Content="33" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute34" Content="34" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute35" Content="35" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute36" Content="36" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute37" Content="37" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute38" Content="38" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute39" Content="39" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute40" Content="40" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute41" Content="41" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute42" Content="42" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute43" Content="43" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute44" Content="44" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute45" Content="45" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute46" Content="46" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute47" Content="47" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute48" Content="48" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute49" Content="49" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute50" Content="50" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute51" Content="51" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute52" Content="52" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute53" Content="53" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute54" Content="54" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute55" Content="55" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute56" Content="56" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute57" Content="57" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute58" Content="58" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChoiceMinute59" Content="59" Background="WhiteSmoke" Foreground="Black"/>
+
+        </ComboBox>
+
+        <ComboBox Name="cmbxAMorPM" HorizontalAlignment="Left" Margin="280,109,0,0" VerticalAlignment="Top" Width="50">
+            <ComboBoxItem Name="ChoiceAM" Content="AM" IsSelected="True" Background="WhiteSmoke" Foreground="Black"/>
+            <ComboBoxItem Name="ChiocePM" Content="PM" Background="WhiteSmoke" Foreground="Black"/>
+        </ComboBox>
+
+        <TextBox x:Name="txtbxAppointmentLocation" Background="WhiteSmoke" TextWrapping="NoWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Margin="122,150,0,0" FontSize="14" />
+        
+        <Button x:Name="btnAddAppointment" Background="WhiteSmoke" Foreground="CornflowerBlue" Content="Add Appointment" Margin="50,210,178,41" FontSize="14" Click="btnAddAppointment_Click"/>
+        <Button x:Name="btnAddCancel" Background="WhiteSmoke" Foreground="CornflowerBlue" Content="Cancel" Margin="218,210,60,41" FontSize="14" Click="btnAddCancel_Click"/>
+        
+
     </Grid>
 </Window>

@@ -6,40 +6,22 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
-    [Serializable]
     public class CreateNewCalendar
     {
         private string title;
-        private List<Members> members = new List<Members>();
+        private List<Member> members = new List<Member>();
         private string password;
 
-        public CreateNewCalendar()
-        {
-
-        }
         public CreateNewCalendar(string title, string password)
         {
             this.title = title;
             this.password = password;
         }
-
-        public string getTitle()
-        {
-            return title;
-        }
-        public string getPassword()
-        {
-            return password;
-        }
-        public List<Members> getList()
-        {
-            return members;
-        }
-        public void addMemberToCalendar(Members member)
+        public void addMemberToCalendar(Member member)
         {
             this.members.Add(member);
         }
-        public void deleteMemberFromCalendar(Members member)
+        public void deleteMemberFromCalendar(Member member)
         {
             members.Remove(member);
         }

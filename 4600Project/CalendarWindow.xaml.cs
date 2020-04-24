@@ -15,17 +15,15 @@ using System.Windows.Shapes;
 namespace _4600Project
 {
     /// <summary>
-    /// Interaction logic for Calendar.xaml
+    /// Interaction logic for CalendarWindow.xaml
     /// </summary>
-    public partial class Calendar : Window
+    public partial class CalendarWindow : Window
     {
-        private CreateAppointmentWindow appointW;
-
-        public Calendar()
+      
+        public CalendarWindow()
         {
             InitializeComponent();
         }
-
-       
     }
 }
+

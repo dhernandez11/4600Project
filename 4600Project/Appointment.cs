@@ -8,6 +8,9 @@ namespace _4600Project
 {
     public class Appointment 
     {
-       //create appointment
+        public string Subject { get; set; }
+        public DateTime Date { get; set; }
+        public string Time { get; set; }
+        public string Location { get; set; }
     }
 }

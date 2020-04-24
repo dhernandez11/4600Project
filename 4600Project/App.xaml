@@ -22,7 +22,7 @@
 
         <!--CalendarItem-->
 
-<Style TargetType="{x:Type CalendarItem}" x:Key="CalendarItemStyle">
+<Style TargetType="CalendarItem" x:Key="CalendarItemStyle">
 
     <Setter Property="Margin" Value="0,3,0,3"  />
 
@@ -30,7 +30,7 @@
 
         <Setter.Value>
 
-            <ControlTemplate TargetType="{x:Type CalendarItem}">
+            <ControlTemplate TargetType="CalendarItem">
 
                 <ControlTemplate.Resources>
 
@@ -547,7 +547,8 @@
 
 <!--CalendarDayButton-->
 
-<Style x:Key="CalendarDayButtonStyle" TargetType="CalendarDayButton">
+<Style x:Key="CalendarDayButtonStyle" TargetType="{x:Type CalendarDayButton}">
+           
 
     <Setter Property="MinWidth" Value="5"/>
 
@@ -563,7 +564,11 @@
 
         <Setter.Value>
 
+                        
             <ControlTemplate TargetType="CalendarDayButton">
+                <ControlTemplate.Resources>
+                    <local:AppointmentConverter x:Key="AppointmentConverter"/>
+                </ControlTemplate.Resources>
 
                 <Grid>
 
@@ -824,21 +829,48 @@
                                     <SolidColorBrush Color="{DynamicResource SelectedBackgroundColor}" />
                                 </Rectangle.Stroke>
                             </Rectangle>
+                            <StackPanel>
+                                <!-- Appointments -->
+                            <ListBox
+                            x:Name="appointmentsLbx"
+                            Grid.Row="1"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            HorizontalContentAlignment="Center"
+                            Width="130"
+                            >
+                                <ListBox.ItemsSource>
+                                    <MultiBinding Converter="{StaticResource AppointmentConverter}">
+                                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MonthView}}" Path="Appointments"/>
+                                        <Binding RelativeSource="{RelativeSource Mode=Self}" Path="DataContext"/>
+                                    </MultiBinding>
+                                </ListBox.ItemsSource>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Background="#FFDFE8F5" BorderBrush="#FF5D8CC9" BorderThickness="1" CornerRadius="4">
+                                            <TextBlock HorizontalAlignment="Center" Text="{Binding Subject}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            </StackPanel> 
                         </Grid>
-
-            </ControlTemplate>
-
-        </Setter.Value>
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="appointmentsLbx" Property="HasItems" Value="False">
+                                <Setter TargetName="appointmentsLbx" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
 
     </Setter>
-
-</Style>
+        </Style>
 
 
 
 <!--Calendar Button-->
 
-<Style TargetType="CalendarButton">
+<Style TargetType="{x:Type CalendarButton}">
 
     <Setter Property="MinWidth" Value="40"/>
 
@@ -1015,16 +1047,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <!--Calendar-->
 
-        <Style TargetType="{x:Type Calendar}">
+        <Style TargetType="{x:Type local:MonthView}">
 
-            <Setter Property="CalendarDayButtonStyle"
-          Value="{StaticResource CalendarDayButtonStyle}" />
+            <Setter Property="CalendarButtonStyle" Value="{DynamicResource CalendarButtonStyle}" />
+
+            <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}" />
 
             <Setter Property="CalendarItemStyle" Value="{StaticResource CalendarItemStyle}"/>
-           
-            <Setter Property="CalendarButtonStyle" Value="{DynamicResource CalendarButtonStyle}" />
 
             <Setter Property="Foreground" Value="#FF333333" />
 

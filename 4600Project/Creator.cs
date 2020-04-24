@@ -6,20 +6,11 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
-    class Creator
+    class Creator : Member
     {
-        private string creatorName;
-        private string creatorEmailAddress;
-
-        public Creator()
+        public Creator(string name, string emailAddress) : base(name, emailAddress)
         {
-            
-        }
 
-        public Creator(string creatorName, string creatorEmailAddress)
-        {
-            this.creatorName = creatorName;
-            this.creatorEmailAddress = creatorEmailAddress;
         }
     }
 }
