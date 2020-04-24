@@ -52,6 +52,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\jsontest\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Net" />
@@ -83,7 +86,15 @@
     <Compile Include="CalendarWindow.xaml.cs">
       <DependentUpon>CalendarWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ApiHelper.cs" />
+    <Compile Include="CalendarAppointmentItem.cs" />
+    <Compile Include="CityName.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="NameProcessor.cs" />
+    <Compile Include="WeatherModel.cs" />
+    <Compile Include="WeatherMain.cs" />
+    <Compile Include="WeatherProcessor.cs" />
+    <Page Include="Calendar.xaml">
     <Compile Include="MonthView.cs" />
     <Page Include="CalendarWindow.xaml">
       <SubType>Designer</SubType>
@@ -185,6 +196,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\ZipCodeBoxBackground.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

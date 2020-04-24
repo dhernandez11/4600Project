@@ -27,8 +27,8 @@ namespace _4600Project
 
         public MainWindow()
         {
-       
             InitializeComponent();
+            
         }
 
         private void btnNewCalendar_Click(object sender, RoutedEventArgs e)
@@ -49,6 +49,7 @@ namespace _4600Project
             LogInCalendar.Show();
             this.Close();
         }
+        
     }
 
 }
