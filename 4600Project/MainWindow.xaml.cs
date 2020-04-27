@@ -47,7 +47,6 @@ namespace _4600Project
                 LogInCalendar = new LogInWindow();
             }
             LogInCalendar.Show();
-            this.Close();
         }
         
     }

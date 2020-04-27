@@ -1,8 +1,12 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,7 +23,7 @@ namespace _4600Project
     /// </summary>
     public partial class CalendarWindow : Window
     {
-      
+
         public CalendarWindow()
         {
             InitializeComponent();
@@ -85,6 +89,40 @@ namespace _4600Project
                     zipCodeBox.Text = "";
                 }
             }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            
+            
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dvwvi\Source\Repos\4600Project\4600Project\Database1.mdf;Integrated Security=True");
+    
+                using (SqlCommand command = new SqlCommand("SELECT subject, date, time, location FROM [Appointments] WHERE username=@username", connection))
+                {
+                    command.Parameters.AddWithValue("@username", "cale");
+
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string subject = Convert.ToString(reader["subject"]);
+                        DateTime date = Convert.ToDateTime(reader["date"]);
+                        string time = Convert.ToString(reader["time"]);
+                        string location = Convert.ToString(reader["location"]);
+
+
+                    }
+                    connection.Close();
+         
+            }
+
         }
     }
 }

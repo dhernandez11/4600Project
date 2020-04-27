@@ -40,7 +40,7 @@ namespace _4600Project
         {
             calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
             Member member = new Member(txtbxAddMembersName.Text, txtbxAddMembersEmail.Text);
-            calendar.addMemberToCalendar(member);
+            //calendar.addMemberToCalendar(member);
             this.addMemb(member);
             lstbxAddMember.Items.Add(member); 
             txtbxAddMembersName.Clear();
@@ -57,18 +57,15 @@ namespace _4600Project
 
         private void btnStartNew_Click(object sender, RoutedEventArgs e)
         {
-            //still to do:
-            //save created calendar in a file with name and password
-            //encrypt/save password and calendar name
-            //figure out how to use multiple email senders; this as of right now, will send only from outlook/hotmail accounts to any email account
-            //possibly create a generic outlook email account to send out invites rather than use user emails to combat this easily
+            Creator creator = new Creator(txtbxCreatorName.Text, txtbxCreatorEmail.Text);
+            this.addMemb(creator);
 
             calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
 
             MailMessage mail = new MailMessage();
-            SmtpClient smtp = new SmtpClient("smtp.outlook.com");
+            SmtpClient smtp = new SmtpClient("smtp.live.com");
 
-            mail.From = new MailAddress(txtbxCreatorEmail.Text);
+            mail.From = new MailAddress("vDayCalendar@outlook.com");
             mail.Body = "You have been invited to join " + txtbxCreatorName.Text + "'s vDay calendar.\n To log in, use this calendar username and password.\n\nCalendar Name: " + txtbxCalendarName.Text + "\nPassword: " + txtbxPasswordCreate.Text;
             mail.Subject = "Join vDay Calendar";
 
@@ -77,18 +74,24 @@ namespace _4600Project
             smtp.EnableSsl = true;
 
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential(txtbxCreatorEmail.Text, pwdbxCreatorEmailPassword.Password);
+            smtp.Credentials = new System.Net.NetworkCredential("vDayCalendar@outlook.com", "v8Day8Cal");
 
 
             foreach (Member member in membersList)
             {
+                
                 MailAddress To = new MailAddress(member.getEmailAddress());
                 mail.To.Add(member.getEmailAddress());
                 smtp.Send(mail);
 
+                Database.AddMember(txtbxCalendarName.Text, member.getName(), member.getEmailAddress());
+                calendar.addMemberToCalendar(member);
+
+
             }
 
             Database.AddUser(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
+
             this.Close();
 
 

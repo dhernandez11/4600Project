@@ -1,9 +1,13 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Vml.Office;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -22,6 +26,8 @@ namespace _4600Project
     public partial class CreateAppointmentWindow : Window
     {
         private Action<Appointment> saveApp;
+        private List<Member> membersList = new List<Member>();
+
 
         public CreateAppointmentWindow(Action<Appointment> saveApp)
         {
@@ -32,13 +38,14 @@ namespace _4600Project
         private void btnAddAppointment_Click(object sender, RoutedEventArgs e)
         {
             Appointment appointment = new Appointment();
-            appointment.Subject = txtbxAppointmentTitle.Text;
+            appointment.Subject = " " + txtbxAppointmentTitle.Text + " " ;
             appointment.Date = datePicker.SelectedDate.Value;
 
             appointment.Time = cmbxHour.Text + ":" + cmbxMinute.Text + " " + cmbxAMorPM.Text;
             appointment.Location = txtbxAppointmentLocation.Text;
 
             saveApp(appointment);
+            Database.addAppointment(CreateNewCalendar.getTitle(), appointment.Subject, appointment.Date, appointment.Time, appointment.Location);
 
             Close();
         }
@@ -48,14 +55,111 @@ namespace _4600Project
             Close();
         }
 
-        private void datePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void chkbxReminder_Checked(object sender, RoutedEventArgs e)
         {
+            if (txtbxAppointmentTitle.Text == "" || txtbxAppointmentLocation.Text == "" || cmbxHour.Text == "Hour" || cmbxMinute.Text == "Minute" || datePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Please fill in all of the appropriate fields");
+                chkbxReminder.IsChecked = false;
+            }
+            else 
+            {
+                rReminder.Visibility = Visibility.Visible;
+                txtblReminder.Visibility = Visibility.Visible;
+                lbxReminder.Visibility = Visibility.Visible;
+                btnSendReminder.Visibility = Visibility.Visible;
+                lblReminderMembers.Visibility = Visibility.Visible;
+                btnCancel.Visibility = Visibility.Visible;
 
-            //for some reason the month shows up 00 always. not sure why
-            //also the xmal labels in the designer look fine but when the appointment window comes up at execution, they look bad
-            //i'll try and work on it and see what up though
+                if (lbxReminder.Items.Count == 0)
+                {
 
-            txtbxAppointmentDate.Text = Convert.ToDateTime(datePicker.SelectedDate, CultureInfo.GetCultureInfo("en-US")).ToString("mm/dd/yyyy");
+                    SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dvwvi\Source\Repos\4600Project\4600Project\Database1.mdf;Integrated Security=True");
+                    using (SqlCommand command = new SqlCommand("SELECT name, emailaddress FROM [Members] WHERE username=@username", connection))
+                    {
+                        command.Parameters.AddWithValue("@username", CreateNewCalendar.getTitle());
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            string name = Convert.ToString(reader["name"]);
+                            string email = Convert.ToString(reader["emailaddress"]);
+
+                            lbxReminder.Items.Add(name + ": " + email);
+                            Member member = new Member(name, email);
+
+                            addMemb(member);
+
+                        }
+                        connection.Close();
+                    }
+                }
+
+            }
+
+        }
+        public void addMemb(Member member)
+        {
+            this.membersList.Add(member);
+        }
+
+        private void btnSendReminder_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbxReminder.SelectedItem == null)
+            {
+                MessageBox.Show("Please select member(s) to receive reminder");
+            }
+            else
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient smtp = new SmtpClient("smtp.live.com");
+
+                mail.From = new MailAddress("vDayCalendar@outlook.com");
+                mail.Body = "This is a reminder for your appointment: " + txtbxAppointmentTitle.Text + " at " + cmbxHour.Text + ":" + cmbxMinute.Text + " " + cmbxAMorPM.Text + " located at " + txtbxAppointmentLocation.Text + " on " + datePicker.SelectedDate.Value.Date.ToShortDateString() + ".";
+                mail.Subject = "vDay Reminder";
+
+                smtp.Port = 587;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.EnableSsl = true;
+
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("vDayCalendar@outlook.com", "v8Day8Cal");
+
+
+                foreach (Member member in membersList)
+                {
+                    if (lbxReminder.SelectedItem.ToString() == member.getName() + ": " + member.getEmailAddress())
+                    {
+                        MailAddress To = new MailAddress(member.getEmailAddress());
+                        mail.To.Add(member.getEmailAddress());
+                        smtp.Send(mail);
+                    }
+
+
+                }
+
+                rReminder.Visibility = Visibility.Hidden;
+                txtblReminder.Visibility = Visibility.Hidden;
+                lbxReminder.Visibility = Visibility.Hidden;
+                btnSendReminder.Visibility = Visibility.Hidden;
+                lblReminderMembers.Visibility = Visibility.Hidden;
+                btnCancel.Visibility = Visibility.Hidden;
+
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            rReminder.Visibility = Visibility.Hidden;
+            txtblReminder.Visibility = Visibility.Hidden;
+            lbxReminder.Visibility = Visibility.Hidden;
+            btnSendReminder.Visibility = Visibility.Hidden;
+            lblReminderMembers.Visibility = Visibility.Hidden;
+            btnCancel.Visibility = Visibility.Hidden;
+
+
+            chkbxReminder.IsChecked = false;
         }
     }
 }

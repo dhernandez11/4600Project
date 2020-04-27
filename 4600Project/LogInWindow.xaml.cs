@@ -29,15 +29,20 @@ namespace _4600Project
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
            int userId = Database.GetUserById(txtbxLogInName.Text, pwrdbxPassword.Password);
+
            if(userId > 0)
             {
-                //open appropriate calendar window here
-                if(calendar == null)
+                if(CreateNewCalendar.getTitle() == null)
+                {
+                    CreateNewCalendar cnc = new CreateNewCalendar(txtbxLogInName.Text);
+
+                }
+
+                if (calendar == null)
                 {
                     calendar = new CalendarWindow();
                 }
-                this.Close();
-
+                this.Hide();
                 calendar.Show();
             }
             else

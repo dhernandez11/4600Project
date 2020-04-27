@@ -61,63 +61,9 @@ namespace _4600Project
                 return;
             }
 
-            //calls function when listbox item is double clicked
-            appointmentsLbx_SelectedItem();
-        }
-        public void appointmentsLbx_SelectedItem()
-        {
-           //for now I just have a series of messageboxes to ask the user if they want to edit/delete appointment (listbox item) when they double click
-           //the appointment and the current var lb is just a place holder, the findname() returns null
-            var lb = (ListBox)FindName("appointmentsLbx");
-
-            if (lb.SelectedValue.ToString() == "")
-            { 
-            DialogResult dr = System.Windows.Forms.MessageBox.Show("Would you like to edit or delete this appointment?", "Appointment Editor", MessageBoxButtons.YesNo);
-
-                if (dr == DialogResult.Yes)
-                {
-                    DialogResult dr2 = System.Windows.Forms.MessageBox.Show("Would you like to edit the appointment?", "Appointment Editor", MessageBoxButtons.YesNo);
-                    if (dr2 == DialogResult.Yes)
-                    {
-                        lb.Items.RemoveAt(lb.Items.IndexOf(lb.SelectedItem));
-
-                        CreateAppointmentWindow appointmentWindow = new CreateAppointmentWindow((Appointment appointment) =>
-                            {
-                                Appointments.Add(appointment);
-
-                                if (PropertyChanged != null)
-                                {
-                                    PropertyChanged(this, new PropertyChangedEventArgs("Appointments"));
-
-                                }
-                            }
-
-                        );
-                        appointmentWindow.Show();
-                    }
-                    else if (dr2 == DialogResult.No)
-                    {
-                        DialogResult dr3 = System.Windows.Forms.MessageBox.Show("Would you like to delete the appointment?", "Appointment Editor", MessageBoxButtons.YesNo);
-
-                        if (dr3 == DialogResult.Yes)
-                        {
-                            lb.Items.RemoveAt(lb.Items.IndexOf(lb.SelectedItem));
-                        }
-                        else
-                        {
-                            return;
-                        }
-
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-
-            }
            
         }
+       
     }
    
 }
