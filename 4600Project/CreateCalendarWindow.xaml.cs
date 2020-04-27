@@ -63,7 +63,7 @@ namespace _4600Project
             calendar = new CreateNewCalendar(txtbxCalendarName.Text, txtbxPasswordCreate.Text);
 
             MailMessage mail = new MailMessage();
-            SmtpClient smtp = new SmtpClient("smtp.outlook.com");
+            SmtpClient smtp = new SmtpClient("smtp.live.com");
 
             mail.From = new MailAddress("vDayCalendar@outlook.com");
             mail.Body = "You have been invited to join " + txtbxCreatorName.Text + "'s vDay calendar.\n To log in, use this calendar username and password.\n\nCalendar Name: " + txtbxCalendarName.Text + "\nPassword: " + txtbxPasswordCreate.Text;

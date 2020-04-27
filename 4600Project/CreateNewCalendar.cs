@@ -8,13 +8,17 @@ namespace _4600Project
 {
     public class CreateNewCalendar
     {
-        public string title;
+        private static string title;
         private List<Member> members = new List<Member>();
         private string password;
 
-        public CreateNewCalendar(string title, string password)
+        public CreateNewCalendar(string title1)
         {
-            this.title = title;
+            title = title1;
+        }
+        public CreateNewCalendar(string title1, string password)
+        {
+            title = title1;
             this.password = password;
         }
         public void addMemberToCalendar(Member member)
@@ -25,6 +29,9 @@ namespace _4600Project
         {
             members.Remove(member);
         }
-
+        public static string getTitle()
+        {
+            return title;
+        }
     }
 }

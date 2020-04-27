@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_4600Project"
         mc:Ignorable="d"
-         Title="vDay" Height="650" Width="1302" Background="CornflowerBlue">
+         Title="vDay" Height="650" Width="1324" Background="CornflowerBlue">
 
     <Grid>
         <Grid x:Name="CalendarGrid" Margin="0,0,3,0" >
@@ -15,19 +15,19 @@
             </Grid.RowDefinitions>
             <local:MonthView Margin="3,9,0,-2" Grid.RowSpan="2" />
         </Grid>
-        <TextBox HorizontalAlignment="Left" Height="351" Margin="9,57,0,0" Background="WhiteSmoke" TextWrapping="NoWrap" VerticalAlignment="Top" Width="164" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" Grid.Column="1" />
-        <Label x:Name="lblNotes" Content="Notes" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="100" Foreground="WhiteSmoke" FontSize="30" FontFamily="Segoe Print" FontWeight="Bold" Grid.Column="1" Margin="39,2,45,0"/>
-        <Label x:Name="CityNameLabel" Content="" FontSize="12" Foreground="WhiteSmoke" Grid.Column="1" HorizontalAlignment="Left" Margin="39,458,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="CurrentTemp" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,489,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CurrentFeel" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,520,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="LowTemp" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,546,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="HighTemp" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,572,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="zipCodeBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="107,417,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="67" TextChanged="zipCodeBox_TextChanged">
+        <TextBox HorizontalAlignment="Left" Height="342" Margin="9,66,0,0" Background="WhiteSmoke" TextWrapping="NoWrap" VerticalAlignment="Top" Width="164" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" Grid.Column="1" />
+        <Label x:Name="lblNotes" Content="Notes" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="100" Foreground="WhiteSmoke" FontSize="30" FontFamily="Segoe Print" FontWeight="Bold" Grid.Column="1" Margin="41,0,46,0"/>
+        <Label x:Name="CityNameLabel" Content="" FontSize="10" Foreground="WhiteSmoke" Grid.Column="1" HorizontalAlignment="Left" Margin="35,458,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="CurrentTemp" FontSize="10" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="2,489,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CurrentFeel" FontSize="10" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="2,516,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LowTemp" FontSize="10" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="2,546,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="HighTemp" FontSize="10" Foreground="WhiteSmoke" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="2,572,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="zipCodeBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="107,437,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="67" TextChanged="zipCodeBox_TextChanged">
             <TextBox.Background>
                 <ImageBrush ImageSource="/images/ZipCodeBoxBackground.png" AlignmentX="Left" Stretch="None"/>
             </TextBox.Background>
         </TextBox>
-        <Button x:Name="button" Background="WhiteSmoke" Content="Get the Weather" Grid.Column="1" HorizontalAlignment="Left" Margin="10,416,0,0" VerticalAlignment="Top" Height="24" Width="95" Click="button_Click"/>
+        <Button x:Name="button" Foreground="CornflowerBlue" Background="WhiteSmoke" Content="Get the Weather" Grid.Column="1" HorizontalAlignment="Left" Margin="4,436,0,0" VerticalAlignment="Top" Height="24" Width="95" Click="button_Click"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="555*"/>
